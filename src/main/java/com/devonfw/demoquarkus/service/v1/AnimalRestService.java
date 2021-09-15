@@ -29,7 +29,7 @@ import org.tkit.quarkus.rs.models.PageResultDTO;
 
 //In Quarkus all JAX-RS resources are treated as CDI beans
 //default is Singleton scope
-@Path("/animals")
+@Path("/animal/v1/")
 // how we serialize response
 @Produces(MediaType.APPLICATION_JSON)
 // how we deserialize params
@@ -59,31 +59,31 @@ public class AnimalRestService {
     }
 
     @GET
-    @Path("criteriaApi")
+    @Path("/getAllAnimal")
     public PageImpl<AnimalDto> getAllCriteriaApi(@BeanParam AnimalSearchCriteriaDto dto) {
         return (PageImpl) ucFindAnimal.findAnimalsByCriteriaApi(dto);
     }
 
     @GET
-    @Path("queryDsl")
+    @Path("/searchAnimal")
     public PageImpl<AnimalDto> getAllQueryDsl(@BeanParam AnimalSearchCriteriaDto dto) {
         return (PageImpl) ucFindAnimal.findAnimalsByQueryDsl(dto);
     }
 
     @GET
-    @Path("query")
+    @Path("/findAnimalByName")
     public PageImpl<AnimalDto> getAllQuery(@BeanParam AnimalSearchCriteriaDto dto) {
         return (PageImpl) ucFindAnimal.findAnimalsByNameQuery(dto);
     }
 
     @GET
-    @Path("nativeQuery")
+    @Path("/findAnimalsByNativeName")
     public PageImpl<AnimalDto> getAllNativeQuery(@BeanParam AnimalSearchCriteriaDto dto) {
         return (PageImpl) ucFindAnimal.findAnimalsByNameNativeQuery(dto);
     }
 
     @GET
-    @Path("ordered")
+    @Path("/getAnimalInOrder")
     public PageImpl<AnimalDto> getAllOrderedByName() {
         return (PageImpl) ucFindAnimal.findAnimalsOrderedByName();
     }

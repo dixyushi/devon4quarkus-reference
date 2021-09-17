@@ -58,32 +58,32 @@ public class AnimalRestService {
         return (PageImpl) ucFindAnimal.findAnimals(dto);
     }
 
-    @GET
-    @Path("/getAllAnimal")
+       @GET
+    @Path("/search")
     public PageImpl<AnimalDto> getAllCriteriaApi(@BeanParam AnimalSearchCriteriaDto dto) {
         return (PageImpl) ucFindAnimal.findAnimalsByCriteriaApi(dto);
     }
-
+ 
     @GET
-    @Path("/searchAnimal")
+    @Path("/search/query")
     public PageImpl<AnimalDto> getAllQueryDsl(@BeanParam AnimalSearchCriteriaDto dto) {
         return (PageImpl) ucFindAnimal.findAnimalsByQueryDsl(dto);
     }
-
+ 
     @GET
-    @Path("/findAnimalByName")
+    @Path("/search/name")
     public PageImpl<AnimalDto> getAllQuery(@BeanParam AnimalSearchCriteriaDto dto) {
         return (PageImpl) ucFindAnimal.findAnimalsByNameQuery(dto);
     }
-
+ 
     @GET
-    @Path("/findAnimalsByNativeName")
+    @Path("/search/nativename")
     public PageImpl<AnimalDto> getAllNativeQuery(@BeanParam AnimalSearchCriteriaDto dto) {
         return (PageImpl) ucFindAnimal.findAnimalsByNameNativeQuery(dto);
     }
-
+ 
     @GET
-    @Path("/getAnimalInOrder")
+    @Path("/search/nameorder")
     public PageImpl<AnimalDto> getAllOrderedByName() {
         return (PageImpl) ucFindAnimal.findAnimalsOrderedByName();
     }
